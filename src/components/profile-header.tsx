@@ -1,12 +1,34 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { UserProfile } from '@/lib/types/stats';
+import { useCallback, useState } from 'react';
+import { exportToPDF } from '@/lib/utils/pdf-export';
 
 interface ProfileHeaderProps {
   profile: UserProfile;
 }
 
 const ProfileHeader: React.FC<ProfileHeaderProps> = ({ profile }) => {
+  const [isExporting, setIsExporting] = useState(false);
+
+  const handleExportPDF = useCallback(async () => {
+    if (isExporting) return;
+
+    try {
+      setIsExporting(true);
+      const element = document.getElementById('printable-content');
+      if (!element) {
+        throw new Error('Content element not found');
+      }
+      await exportToPDF(element, profile.username);
+    } catch (error) {
+      console.error('Failed to export PDF:', error);
+      alert('Failed to generate PDF. Please try again.');
+    } finally {
+      setIsExporting(false);
+    }
+  }, [profile.username, isExporting]);
+
   return (
     <div className="relative">
       {/* Banner Image */}
@@ -42,7 +64,7 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ profile }) => {
         {/* Action Buttons */}
         <div className="flex space-x-4 mt-4">
           <Link
-            href="mailto:contact@domain.com"
+            href="mailto:contact@ja2gaming.com"
             className="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-full transition-colors duration-200 inline-flex items-center"
           >
             📥 Inbox
@@ -50,8 +72,12 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ profile }) => {
           <button className="bg-green-600 hover:bg-green-700 px-6 py-2 rounded-full transition-colors duration-200">
             🟢 Available
           </button>
-          <button className="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-full transition-colors duration-200">
-            📄 PDF
+          <button 
+            onClick={handleExportPDF}
+            disabled={isExporting}
+            className="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-full transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {isExporting ? 'Generating...' : '📄 PDF'}
           </button>
         </div>
       </div>
