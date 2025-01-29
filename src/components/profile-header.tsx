@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { UserProfile } from '@/lib/types/stats';
 
 interface ProfileHeaderProps {
@@ -11,13 +12,13 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ profile }) => {
       {/* Banner Image */}
       <div className="h-48 relative rounded-lg overflow-hidden">
         <Image
-          src="/images/banner.png"  // Make sure to add this image to your public folder
+          src="/images/banner.png"
           alt="Profile Banner"
           fill
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-black/20" /> {/* Slight overlay for better contrast */}
+        <div className="absolute inset-0 bg-black/20" />
       </div>
       
       {/* Profile Info */}
@@ -40,9 +41,12 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ profile }) => {
         
         {/* Action Buttons */}
         <div className="flex space-x-4 mt-4">
-          <button className="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-full transition-colors duration-200">
+          <Link
+            href="mailto:contact@domain.com"
+            className="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-full transition-colors duration-200 inline-flex items-center"
+          >
             📥 Inbox
-          </button>
+          </Link>
           <button className="bg-green-600 hover:bg-green-700 px-6 py-2 rounded-full transition-colors duration-200">
             🟢 Available
           </button>
