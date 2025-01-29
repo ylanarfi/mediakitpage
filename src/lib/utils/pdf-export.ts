@@ -38,7 +38,6 @@ export const exportToPDF = async (element: HTMLElement, username: string) => {
 
     // Calculate dimensions
     const imgWidth = 210; // A4 width in mm
-    const pageHeight = 297; // A4 height in mm
     const imgHeight = (canvas.height * imgWidth) / canvas.width;
     
     // Create PDF
