@@ -4,9 +4,10 @@ import Image from 'next/image';
 
 interface SocialStatsProps {
   stats: SocialStats[];
+  isPrintMode?: boolean;
 }
 
-const SocialStatsSection: React.FC<SocialStatsProps> = ({ stats }) => {
+export const SocialStatsSection: React.FC<SocialStatsProps> = ({ stats, isPrintMode = false }) => {
   return (
     <div className="space-y-8 mt-8">
       {stats.map((platform, index) => (
@@ -15,7 +16,9 @@ const SocialStatsSection: React.FC<SocialStatsProps> = ({ stats }) => {
             {/* Platform Icon */}
             <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
               <Image
-                src={`/icons/${platform.platform.toLowerCase()}.svg`}
+                src={isPrintMode ? 
+                  `/images/social/${platform.platform.toLowerCase()}.png` : 
+                  `/icons/${platform.platform.toLowerCase()}.svg`}
                 alt={platform.platform}
                 width={24}
                 height={24}
@@ -87,5 +90,3 @@ const SocialStatsSection: React.FC<SocialStatsProps> = ({ stats }) => {
     </div>
   );
 };
-
-export { SocialStatsSection };

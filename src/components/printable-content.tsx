@@ -10,9 +10,20 @@ interface PrintableContentProps {
 
 const PrintableContent: React.FC<PrintableContentProps> = ({ profile }) => {
   return (
-    <div className="bg-gray-900 text-white p-8">
+    <div className="bg-gray-900 text-white">
+      {/* Banner */}
+      <div className="relative h-48 w-full mb-8">
+        <Image
+          src="/images/banner.png"
+          alt="Profile Banner"
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
+
       {/* Profile Header for PDF */}
-      <div className="mb-8">
+      <div className="mb-8 px-8">
         <div className="flex items-center space-x-6">
           <div className="relative w-24 h-24 rounded-full overflow-hidden">
             <Image
@@ -30,16 +41,22 @@ const PrintableContent: React.FC<PrintableContentProps> = ({ profile }) => {
       </div>
 
       {/* Social Stats */}
-      <SocialStatsSection stats={profile.socialStats} />
+      <div className="px-8">
+        <SocialStatsSection stats={profile.socialStats} isPrintMode={true} />
+      </div>
 
       {/* Experiences */}
-      <ExperiencesSection experiences={profile.experiences} />
+      <div className="px-8">
+        <ExperiencesSection experiences={profile.experiences} isPrintMode={true} />
+      </div>
 
       {/* Frames */}
-      <FramesGallery frames={profile.frames} />
+      <div className="px-8">
+        <FramesGallery frames={profile.frames} />
+      </div>
 
       {/* Footer */}
-      <div className="mt-8 text-center text-sm text-gray-400">
+      <div className="mt-8 text-center text-sm text-gray-400 px-8 pb-8">
         Generated on {new Date().toLocaleDateString()}
       </div>
     </div>

@@ -4,9 +4,10 @@ import Link from 'next/link';
 
 interface ExperiencesProps {
   experiences: Experience[];
+  isPrintMode?: boolean;
 }
 
-const ExperiencesSection: React.FC<ExperiencesProps> = ({ experiences }) => {
+const ExperiencesSection: React.FC<ExperiencesProps> = ({ experiences, isPrintMode = false }) => {
   return (
     <div className="mt-12">
       <h2 className="text-2xl font-bold mb-6">Experiences</h2>
@@ -32,14 +33,16 @@ const ExperiencesSection: React.FC<ExperiencesProps> = ({ experiences }) => {
               <p className="text-sm text-gray-300 mb-4">{exp.description}</p>
               <p className="text-sm text-purple-400">VALORANT for {exp.game}</p>
               
-              <Link 
-                href={exp.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full mt-4 py-2 text-center border border-gray-700 rounded-lg hover:bg-white/5 transition-all duration-200 hover:border-purple-500"
-              >
-                Discover
-              </Link>
+              {!isPrintMode && (
+                <Link 
+                  href={exp.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full mt-4 py-2 text-center border border-gray-700 rounded-lg hover:bg-white/5 transition-all duration-200 hover:border-purple-500"
+                >
+                  Discover
+                </Link>
+              )}
             </div>
           </div>
         ))}

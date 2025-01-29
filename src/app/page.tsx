@@ -24,7 +24,7 @@ export default function Home() {
         </div>
         
         <footer className="mt-12 py-6 text-center text-gray-400 text-sm">
-          © 2025 Media Gear Inc. All rights reserved.
+          © 2025 Media Kit Page. All rights reserved.
         </footer>
       </div>
     </main>
