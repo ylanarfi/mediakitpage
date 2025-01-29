@@ -53,7 +53,7 @@ export const mockProfile: UserProfile = {
       title: 'Lioness Cup 2024',
       role: '3rd',
       date: 'October 2024',
-      game: 'Valorant',
+      game: 'NYAN',
       description: '',
       imageUrl: '/images/experiences/lioness.jpg',
       url: 'https://www.vlr.gg/team/13855/nyan-esports'
@@ -62,7 +62,7 @@ export const mockProfile: UserProfile = {
       title: 'RTS3',
       role: '2nd',
       date: '2024',
-      game: 'Valorant',
+      game: 'MIX',
       description: '',
       imageUrl: '/images/experiences/bts3.jpg',
       url: 'https://www.vlr.gg/team/12630/huge-esport'
@@ -71,7 +71,7 @@ export const mockProfile: UserProfile = {
       title: 'contenders s2 2024',
       role: '5th',
       date: 'July 2024',
-      game: 'Valorant',
+      game: 'charbon',
       description: '',
       imageUrl: '/images/experiences/contenders.jpg',
       url: 'https://www.vlr.gg/team/15862/charbon'
