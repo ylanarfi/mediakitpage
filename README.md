@@ -1,4 +1,4 @@
-# MediaGear
+# Media Kit Page
 
 A social media stats dashboard built with Next.js 14+, TypeScript, and Tailwind CSS.
 
@@ -26,7 +26,7 @@ git clone https://github.com/ylanarfi/mediakitpage.git
 
 2. Install dependencies
 ```bash
-cd mediagear
+cd mediakitpage
 npm install
 ```
 
