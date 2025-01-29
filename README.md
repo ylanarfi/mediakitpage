@@ -21,7 +21,7 @@ A social media stats dashboard built with Next.js 14+, TypeScript, and Tailwind 
 
 1. Clone the repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/mediagear.git
+git clone https://github.com/ylanarfi/mediakitpage.git
 ```
 
 2. Install dependencies
