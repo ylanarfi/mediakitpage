@@ -10,7 +10,7 @@ interface PrintableContentProps {
 
 const PrintableContent: React.FC<PrintableContentProps> = ({ profile }) => {
   return (
-    <div className="bg-gray-900 text-white">
+    <div className="bg-gray-900 text-white min-h-screen">
       {/* Banner */}
       <div className="relative h-48 w-full mb-8">
         <Image
@@ -31,6 +31,7 @@ const PrintableContent: React.FC<PrintableContentProps> = ({ profile }) => {
               alt={profile.username}
               fill
               className="object-cover"
+              priority
             />
           </div>
           <div>
@@ -41,18 +42,18 @@ const PrintableContent: React.FC<PrintableContentProps> = ({ profile }) => {
       </div>
 
       {/* Social Stats */}
-      <div className="px-8">
+      <div className="px-8 mb-8">
         <SocialStatsSection stats={profile.socialStats} isPrintMode={true} />
       </div>
 
       {/* Experiences */}
-      <div className="px-8">
+      <div className="px-8 mb-8">
         <ExperiencesSection experiences={profile.experiences} isPrintMode={true} />
       </div>
 
       {/* Frames */}
-      <div className="px-8">
-        <FramesGallery frames={profile.frames} />
+      <div className="px-8 mb-8" style={{ breakInside: 'avoid' }}>
+        <FramesGallery frames={profile.frames} isPrintMode={true} />
       </div>
 
       {/* Footer */}
