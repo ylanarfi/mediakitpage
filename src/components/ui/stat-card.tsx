@@ -24,6 +24,14 @@ const StatCard: React.FC<StatCardProps> = ({
     suffix
   });
 
+  // Helper function to determine background gradient class
+  const getGradientClass = () => {
+    if (typeof growth === 'undefined') return '';
+    return growth >= 0 
+      ? 'bg-gradient-to-br from-green-500' 
+      : 'bg-gradient-to-br from-red-500';
+  };
+
   return (
     <div 
       ref={ref}
@@ -50,8 +58,8 @@ const StatCard: React.FC<StatCardProps> = ({
       </p>
       
       {/* Background gradient effect on hover */}
-      <div className={`absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300
-        ${growth >= 0 ? 'bg-gradient-to-br from-green-500' : 'bg-gradient-to-br from-red-500'}`} 
+      <div 
+        className={`absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300 ${getGradientClass()}`}
       />
     </div>
   );
