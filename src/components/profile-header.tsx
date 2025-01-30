@@ -65,8 +65,8 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ profile }) => {
 
   return (
     <div className="relative">
-      {/* Banner Image */}
-      <div className="h-48 sm:h-64 relative rounded-lg overflow-hidden">
+      {/* Banner Image with fade-in animation */}
+      <div className="h-48 sm:h-64 relative rounded-lg overflow-hidden animate-fade-in">
         <Image
           src="/images/banner.png"
           alt="Profile Banner"
@@ -79,9 +79,9 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ profile }) => {
       
       {/* Profile Info - Centered Layout */}
       <div className="relative px-6 flex flex-col items-center">
-        {/* Profile Picture */}
-        <div className="relative -mt-16 sm:-mt-20">
-          <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden border-4 border-black bg-black">
+        {/* Profile Picture with scale-in animation */}
+        <div className="relative -mt-16 sm:-mt-20 animate-scale-in delay-200">
+          <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden border-4 border-black bg-black hover:scale-105 transition-transform duration-300">
             <Image
               src={profile.avatar}
               alt={profile.username}
@@ -92,29 +92,33 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ profile }) => {
           </div>
         </div>
 
-        {/* Profile Text */}
-        <div className="mt-4 sm:mt-6 text-center">
-          <h1 className="text-3xl sm:text-4xl font-bold">{profile.username}</h1>
+        {/* Profile Text with slide-in animation */}
+        <div className="mt-4 sm:mt-6 text-center animate-slide-in delay-300">
+          <h1 className="text-3xl sm:text-4xl font-bold hover:text-purple-400 transition-colors duration-300">
+            {profile.username}
+          </h1>
           <p className="text-gray-400 mt-2 text-sm sm:text-base max-w-2xl mx-auto inline-flex items-center justify-center">
             {renderDescription()}
           </p>
         </div>
         
-        {/* Action Buttons */}
-        <div className="flex justify-center items-center gap-2 sm:gap-4 mt-6 w-full overflow-x-auto pb-2">
+        {/* Action Buttons with fade-in animation */}
+        <div className="flex justify-center items-center gap-2 sm:gap-4 mt-6 w-full overflow-x-auto pb-2 animate-fade-in delay-400">
           <Link
             href="mailto:contact@ja2gaming.com"
-            className="flex-none bg-purple-600 hover:bg-purple-700 px-4 sm:px-6 py-2 rounded-full transition-colors duration-200 inline-flex items-center text-sm sm:text-base"
+            className="flex-none bg-purple-600 hover:bg-purple-700 px-4 sm:px-6 py-2 rounded-full transition-all duration-200 inline-flex items-center text-sm sm:text-base hover:scale-105"
           >
             📥 Inbox
           </Link>
-          <button className="flex-none bg-green-600 hover:bg-green-700 px-4 sm:px-6 py-2 rounded-full transition-colors duration-200 text-sm sm:text-base">
+          <button 
+            className="flex-none bg-green-600 hover:bg-green-700 px-4 sm:px-6 py-2 rounded-full transition-all duration-200 text-sm sm:text-base hover:scale-105"
+          >
             🟢 Available
           </button>
           <button 
             onClick={handleExportPDF}
             disabled={isExporting}
-            className="flex-none bg-blue-600 hover:bg-blue-700 px-4 sm:px-6 py-2 rounded-full transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
+            className="flex-none bg-blue-600 hover:bg-blue-700 px-4 sm:px-6 py-2 rounded-full transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base hover:scale-105"
           >
             {isExporting ? 'Generating...' : '📄 PDF'}
           </button>
