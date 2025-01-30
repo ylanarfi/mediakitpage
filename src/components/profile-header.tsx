@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { UserProfile } from '@/lib/types/stats';
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import { exportToPDF } from '@/lib/utils/pdf-export';
 
 interface ProfileHeaderProps {
@@ -10,6 +10,18 @@ interface ProfileHeaderProps {
 
 const ProfileHeader: React.FC<ProfileHeaderProps> = ({ profile }) => {
   const [isExporting, setIsExporting] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const handleExportPDF = useCallback(async () => {
     if (isExporting) return;
@@ -28,6 +40,28 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ profile }) => {
       setIsExporting(false);
     }
   }, [profile.username, isExporting]);
+
+  const renderDescription = () => {
+    return (
+      <span className="inline-flex items-center">
+        21{' '}
+        {isMobile ? (
+          <span className="mx-1">🇫🇷</span>
+        ) : (
+          <span className="inline-block mx-1">
+            <Image
+              src="/images/flags/fr-flag.svg"
+              alt="FR"
+              width={20}
+              height={14}
+              className="inline-block align-middle"
+            />
+          </span>
+        )}
+        {' '}| F/A dash in site for ( streaming sometimes )
+      </span>
+    );
+  };
 
   return (
     <div className="relative">
@@ -61,14 +95,8 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ profile }) => {
         {/* Profile Text */}
         <div className="mt-4 sm:mt-6 text-center">
           <h1 className="text-3xl sm:text-4xl font-bold">{profile.username}</h1>
-          <p 
-            className="text-gray-400 mt-2 text-sm sm:text-base max-w-2xl mx-auto" 
-            style={{ 
-              fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Segoe UI Emoji", "Segoe UI Symbol", "Apple Color Emoji"',
-              letterSpacing: '0.01em'
-            }}
-          >
-            {profile.description}
+          <p className="text-gray-400 mt-2 text-sm sm:text-base max-w-2xl mx-auto">
+            {renderDescription()}
           </p>
         </div>
         
