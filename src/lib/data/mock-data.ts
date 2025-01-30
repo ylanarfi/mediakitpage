@@ -2,7 +2,7 @@ import { UserProfile } from '../types/stats';
 
 export const mockProfile: UserProfile = {
   username: 'JA2',
-  description: '21 🇫🇷 | F/A dash in site for ( streaming sometimes )',
+  description: '21 🇫🇷 | F/A dash in site for (streaming sometimes)',
   avatar: '/images/profile.jpg',
   socialStats: [
     {
@@ -21,7 +21,7 @@ export const mockProfile: UserProfile = {
     },
     {
       platform: 'X',
-      handle: '21 🇫🇷 | F/A dash in site for ( streaming sometimes )',
+      handle: 'F/A dash in site for ??',
       stats: {
         followers: 909000,
         posts: 1800,
@@ -35,7 +35,7 @@ export const mockProfile: UserProfile = {
     },
     {
       platform: 'Twitch',
-      handle: 'c’est jade 21 ans, joueuse valorant - main duelist immo hésites pas à follow/sub pour me soutenir :)',
+      handle: 'Joueuse valorant - main duelist immo',
       stats: {
         followers: 2400,
         averageViewers: 45.6,

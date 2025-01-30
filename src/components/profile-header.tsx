@@ -43,8 +43,8 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ profile }) => {
         <div className="absolute inset-0 bg-black/20" />
       </div>
       
-      {/* Profile Info */}
-      <div className="relative px-6 flex flex-col items-center sm:items-start">
+      {/* Profile Info - Always Centered */}
+      <div className="relative px-6 flex flex-col items-center">
         {/* Profile Picture */}
         <div className="relative -mt-16 sm:-mt-20">
           <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden border-4 border-black bg-black">
@@ -58,14 +58,16 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ profile }) => {
           </div>
         </div>
 
-        {/* Profile Text */}
-        <div className="mt-4 sm:mt-6 text-center sm:text-left">
+        {/* Profile Text - Always Centered */}
+        <div className="mt-4 sm:mt-6 text-center">
           <h1 className="text-3xl sm:text-4xl font-bold">{profile.username}</h1>
-          <p className="text-gray-400 mt-2 text-sm sm:text-base">{profile.description}</p>
+          <p className="text-gray-400 mt-2 text-sm sm:text-base max-w-2xl mx-auto">
+            {profile.description}
+          </p>
         </div>
         
-        {/* Action Buttons - Modified for single line on mobile */}
-        <div className="flex justify-center sm:justify-start items-center gap-2 sm:gap-4 mt-6 w-full overflow-x-auto pb-2">
+        {/* Action Buttons - Always Centered */}
+        <div className="flex justify-center items-center gap-2 sm:gap-4 mt-6 w-full overflow-x-auto pb-2">
           <Link
             href="mailto:contact@ja2gaming.com"
             className="flex-none bg-purple-600 hover:bg-purple-700 px-4 sm:px-6 py-2 rounded-full transition-colors duration-200 inline-flex items-center text-sm sm:text-base"
