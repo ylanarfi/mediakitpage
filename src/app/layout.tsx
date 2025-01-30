@@ -6,17 +6,24 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'ja2 | MediaKit',
-  description: 'Professional gaming and streaming media kit for JA2, featuring social media stats, gaming achievements, and content creation highlights.',
-  keywords: ['ja2', 'gaming', 'streamer', 'valorant', 'media kit', 'content creator'],
-  openGraph: {
-    title: 'ja2 | MediaKit',
-    description: 'Professional gaming and streaming media kit for JA2',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'ja2 | MediaKit',
-    description: 'Professional gaming and streaming media kit for JA2',
+  description: 'Professional gaming and streaming media kit for JA2',
+  icons: {
+    icon: [
+      {
+        media: '(prefers-color-scheme: light)',
+        url: '/images/favicon/favicon.svg',
+        href: '/images/favicon/favicon.svg',
+      },
+      {
+        media: '(prefers-color-scheme: dark)',
+        url: '/images/favicon/favicon.svg',
+        href: '/images/favicon/favicon.svg',
+      },
+    ],
+    shortcut: ['/images/favicon/favicon.svg'],
+    apple: [
+      { url: '/images/favicon/favicon.svg' },
+    ],
   },
 }
 
@@ -27,6 +34,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" type="image/svg+xml" href="/images/favicon/favicon.svg" />
+        <link rel="alternate icon" href="/images/favicon/favicon.ico" />
+      </head>
       <body className={`${inter.className} bg-gray-900`}>{children}</body>
     </html>
   )
