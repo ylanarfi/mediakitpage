@@ -43,7 +43,7 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ profile }) => {
         <div className="absolute inset-0 bg-black/20" />
       </div>
       
-      {/* Profile Info - Always Centered */}
+      {/* Profile Info - Centered Layout */}
       <div className="relative px-6 flex flex-col items-center">
         {/* Profile Picture */}
         <div className="relative -mt-16 sm:-mt-20">
@@ -58,15 +58,21 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ profile }) => {
           </div>
         </div>
 
-        {/* Profile Text - Always Centered */}
+        {/* Profile Text */}
         <div className="mt-4 sm:mt-6 text-center">
           <h1 className="text-3xl sm:text-4xl font-bold">{profile.username}</h1>
-          <p className="text-gray-400 mt-2 text-sm sm:text-base max-w-2xl mx-auto">
+          <p 
+            className="text-gray-400 mt-2 text-sm sm:text-base max-w-2xl mx-auto" 
+            style={{ 
+              fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Segoe UI Emoji", "Segoe UI Symbol", "Apple Color Emoji"',
+              letterSpacing: '0.01em'
+            }}
+          >
             {profile.description}
           </p>
         </div>
         
-        {/* Action Buttons - Always Centered */}
+        {/* Action Buttons */}
         <div className="flex justify-center items-center gap-2 sm:gap-4 mt-6 w-full overflow-x-auto pb-2">
           <Link
             href="mailto:contact@ja2gaming.com"

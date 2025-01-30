@@ -2,7 +2,8 @@ import { UserProfile } from '../types/stats';
 
 export const mockProfile: UserProfile = {
   username: 'JA2',
-  description: '21 🇫🇷 | F/A dash in site for (streaming sometimes)',
+  // Using direct country code flag emojis for better compatibility
+  description: '21 \u{1F1EB}\u{1F1F7} | F/A dash in site for ( streaming sometimes )',
   avatar: '/images/profile.jpg',
   socialStats: [
     {
