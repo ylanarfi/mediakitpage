@@ -102,26 +102,29 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ profile }) => {
           </p>
         </div>
         
-        {/* Action Buttons with fade-in animation */}
-        <div className="flex justify-center items-center gap-2 sm:gap-4 mt-6 w-full overflow-x-auto pb-2 animate-fade-in delay-400">
-          <Link
-            href="mailto:contact@ja2gaming.com"
-            className="flex-none bg-purple-600 hover:bg-purple-700 px-4 sm:px-6 py-2 rounded-full transition-all duration-200 inline-flex items-center text-sm sm:text-base hover:scale-105"
-          >
-            📥 Inbox
-          </Link>
-          <button 
-            className="flex-none bg-green-600 hover:bg-green-700 px-4 sm:px-6 py-2 rounded-full transition-all duration-200 text-sm sm:text-base hover:scale-105"
-          >
-            🟢 Available
-          </button>
-          <button 
-            onClick={handleExportPDF}
-            disabled={isExporting}
-            className="flex-none bg-blue-600 hover:bg-blue-700 px-4 sm:px-6 py-2 rounded-full transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base hover:scale-105"
-          >
-            {isExporting ? 'Generating...' : '📄 PDF'}
-          </button>
+        {/* Action Buttons Container with Additional Padding */}
+        <div className="w-full pt-4 pb-6 animate-fade-in delay-400">
+          {/* Action Buttons with Fixed Height and Transform Origin */}
+          <div className="flex justify-center items-center gap-2 sm:gap-4">
+            <Link
+              href="mailto:contact@ja2gaming.com"
+              className="flex-none bg-purple-600 hover:bg-purple-700 px-4 sm:px-6 py-2 rounded-full transition-all duration-200 inline-flex items-center text-sm sm:text-base hover:scale-105 origin-center"
+            >
+              📥 Inbox
+            </Link>
+            <button 
+              className="flex-none bg-green-600 hover:bg-green-700 px-4 sm:px-6 py-2 rounded-full transition-all duration-200 text-sm sm:text-base hover:scale-105 origin-center"
+            >
+              🟢 Available
+            </button>
+            <button 
+              onClick={handleExportPDF}
+              disabled={isExporting}
+              className="flex-none bg-blue-600 hover:bg-blue-700 px-4 sm:px-6 py-2 rounded-full transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base hover:scale-105 origin-center"
+            >
+              {isExporting ? 'Generating...' : '📄 PDF'}
+            </button>
+          </div>
         </div>
       </div>
     </div>
