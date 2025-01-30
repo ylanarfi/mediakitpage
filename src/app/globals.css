@@ -13,19 +13,6 @@ body {
   min-height: 100vh;
 }
 
-/* Flag styles */
-.flag-emoji {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 600;
-  padding: 1px 4px;
-  background-color: rgb(59, 130, 246);
-  border-radius: 4px;
-  margin: 0 2px;
-  color: white;
-}
-
 /* Custom Profile Header Styles */
 @media (max-width: 640px) {
   .profile-banner {
