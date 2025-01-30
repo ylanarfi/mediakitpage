@@ -43,18 +43,18 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ profile }) => {
 
   const renderDescription = () => {
     return (
-      <span className="inline-flex items-center">
+      <span className="inline-flex items-center whitespace-nowrap">
         21{' '}
         {isMobile ? (
-          <span className="mx-1">🇫🇷</span>
+          <span className="inline-flex items-center mx-1 translate-y-[-1px]">🇫🇷</span>
         ) : (
-          <span className="inline-block mx-1">
+          <span className="inline-flex items-center mx-1">
             <Image
               src="/images/flags/fr-flag.svg"
               alt="FR"
               width={20}
               height={14}
-              className="inline-block align-middle"
+              className="inline-block"
             />
           </span>
         )}
@@ -95,7 +95,7 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ profile }) => {
         {/* Profile Text */}
         <div className="mt-4 sm:mt-6 text-center">
           <h1 className="text-3xl sm:text-4xl font-bold">{profile.username}</h1>
-          <p className="text-gray-400 mt-2 text-sm sm:text-base max-w-2xl mx-auto">
+          <p className="text-gray-400 mt-2 text-sm sm:text-base max-w-2xl mx-auto inline-flex items-center justify-center">
             {renderDescription()}
           </p>
         </div>
