@@ -64,21 +64,21 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ profile }) => {
           <p className="text-gray-400 mt-2 text-sm sm:text-base">{profile.description}</p>
         </div>
         
-        {/* Action Buttons */}
-        <div className="flex flex-wrap justify-center sm:justify-start gap-4 mt-6">
+        {/* Action Buttons - Modified for single line on mobile */}
+        <div className="flex justify-center sm:justify-start items-center gap-2 sm:gap-4 mt-6 w-full overflow-x-auto pb-2">
           <Link
             href="mailto:contact@ja2gaming.com"
-            className="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-full transition-colors duration-200 inline-flex items-center"
+            className="flex-none bg-purple-600 hover:bg-purple-700 px-4 sm:px-6 py-2 rounded-full transition-colors duration-200 inline-flex items-center text-sm sm:text-base"
           >
             📥 Inbox
           </Link>
-          <button className="bg-green-600 hover:bg-green-700 px-6 py-2 rounded-full transition-colors duration-200">
+          <button className="flex-none bg-green-600 hover:bg-green-700 px-4 sm:px-6 py-2 rounded-full transition-colors duration-200 text-sm sm:text-base">
             🟢 Available
           </button>
           <button 
             onClick={handleExportPDF}
             disabled={isExporting}
-            className="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-full transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="flex-none bg-blue-600 hover:bg-blue-700 px-4 sm:px-6 py-2 rounded-full transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
           >
             {isExporting ? 'Generating...' : '📄 PDF'}
           </button>
