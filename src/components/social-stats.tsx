@@ -10,8 +10,12 @@ interface SocialStatsProps {
 export const SocialStatsSection: React.FC<SocialStatsProps> = ({ stats, isPrintMode = false }) => {
   return (
     <div className="space-y-8 mt-8">
-      {stats.map((platform, index) => (
-        <div key={index} className="bg-black/20 rounded-xl p-6">
+      {stats.map((platform, platformIndex) => (
+        <div 
+          key={platformIndex} 
+          className="bg-black/20 rounded-xl p-6 transform opacity-0 animate-fade-in"
+          style={{ animationDelay: `${platformIndex * 200}ms`, animationFillMode: 'forwards' }}
+        >
           <div className="flex items-center space-x-4 mb-6">
             {/* Platform Icon */}
             <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
@@ -38,6 +42,7 @@ export const SocialStatsSection: React.FC<SocialStatsProps> = ({ stats, isPrintM
               label="Followers"
               value={platform.stats.followers}
               growth={platform.growth.followers}
+              delay={platformIndex * 200}
             />
             
             {platform.platform === 'TikTok' && (
@@ -46,11 +51,13 @@ export const SocialStatsSection: React.FC<SocialStatsProps> = ({ stats, isPrintM
                   label="Likes"
                   value={platform.stats.likes || 0}
                   growth={platform.growth.likes}
+                  delay={platformIndex * 200 + 100}
                 />
                 <StatCard
                   label="Views"
                   value={platform.stats.views || 0}
                   growth={platform.growth.views}
+                  delay={platformIndex * 200 + 200}
                 />
               </>
             )}
@@ -61,11 +68,13 @@ export const SocialStatsSection: React.FC<SocialStatsProps> = ({ stats, isPrintM
                   label="Posts"
                   value={platform.stats.posts || 0}
                   growth={platform.growth.posts}
+                  delay={platformIndex * 200 + 100}
                 />
                 <StatCard
                   label="Likes"
                   value={platform.stats.likes || 0}
                   growth={platform.growth.likes}
+                  delay={platformIndex * 200 + 200}
                 />
               </>
             )}
@@ -76,11 +85,13 @@ export const SocialStatsSection: React.FC<SocialStatsProps> = ({ stats, isPrintM
                   label="Average Viewers"
                   value={platform.stats.averageViewers || 0}
                   growth={platform.growth.averageViewers}
+                  delay={platformIndex * 200 + 100}
                 />
                 <StatCard
                   label="Hours Streamed"
                   value={platform.stats.hoursStreamed || 0}
                   growth={platform.growth.hoursStreamed}
+                  delay={platformIndex * 200 + 200}
                 />
               </>
             )}
