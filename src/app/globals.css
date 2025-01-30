@@ -12,3 +12,27 @@ body {
   background: rgb(var(--background-rgb));
   min-height: 100vh;
 }
+
+/* Custom Profile Header Styles */
+@media (max-width: 640px) {
+  .profile-banner {
+    height: 240px;
+  }
+  
+  .profile-picture {
+    margin-top: -64px;
+    margin-bottom: 1rem;
+  }
+  
+  .profile-info {
+    text-align: center;
+    padding: 0 1rem;
+  }
+}
+
+/* Smooth transitions for responsive changes */
+.profile-banner,
+.profile-picture,
+.profile-info {
+  transition: all 0.3s ease-in-out;
+}

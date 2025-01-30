@@ -32,7 +32,7 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ profile }) => {
   return (
     <div className="relative">
       {/* Banner Image */}
-      <div className="h-48 relative rounded-lg overflow-hidden">
+      <div className="h-48 sm:h-64 relative rounded-lg overflow-hidden">
         <Image
           src="/images/banner.png"
           alt="Profile Banner"
@@ -44,9 +44,10 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ profile }) => {
       </div>
       
       {/* Profile Info */}
-      <div className="relative -mt-16 px-6">
-        <div className="flex items-end space-x-6">
-          <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-black bg-black">
+      <div className="relative px-6 flex flex-col items-center sm:items-start">
+        {/* Profile Picture */}
+        <div className="relative -mt-16 sm:-mt-20">
+          <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden border-4 border-black bg-black">
             <Image
               src={profile.avatar}
               alt={profile.username}
@@ -55,14 +56,16 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ profile }) => {
               priority
             />
           </div>
-          <div className="pb-4">
-            <h1 className="text-3xl font-bold">{profile.username}</h1>
-            <p className="text-gray-400 mt-1">{profile.description}</p>
-          </div>
+        </div>
+
+        {/* Profile Text */}
+        <div className="mt-4 sm:mt-6 text-center sm:text-left">
+          <h1 className="text-3xl sm:text-4xl font-bold">{profile.username}</h1>
+          <p className="text-gray-400 mt-2 text-sm sm:text-base">{profile.description}</p>
         </div>
         
         {/* Action Buttons */}
-        <div className="flex space-x-4 mt-4">
+        <div className="flex flex-wrap justify-center sm:justify-start gap-4 mt-6">
           <Link
             href="mailto:contact@ja2gaming.com"
             className="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-full transition-colors duration-200 inline-flex items-center"
