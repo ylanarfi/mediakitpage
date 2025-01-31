@@ -3,12 +3,13 @@ import { UserProfile } from '../types/stats';
 export const mockProfile: UserProfile = {
   username: 'JA2',
   // Using direct country code flag emojis for better compatibility
-  description: '21 \u{1F1EB}\u{1F1F7} | F/A dash in site for ( streaming sometimes )',
+  description: '21 \u{1F1EB}\u{1F1F7} | F/A dash in site for ??',
   avatar: '/images/profile.jpg',
   socialStats: [
     {
       platform: 'TikTok',
       handle: '@iamja2_ duelist main imm3',
+      profileUrl: 'https://tiktok.com/@iamja2_',
       stats: {
         followers: 6800,
         likes: 161800,
@@ -23,6 +24,7 @@ export const mockProfile: UserProfile = {
     {
       platform: 'X',
       handle: 'F/A dash in site for ??',
+      profileUrl: 'https://x.com/iamja2_',
       stats: {
         followers: 928,
         posts: 1800,
@@ -37,6 +39,7 @@ export const mockProfile: UserProfile = {
     {
       platform: 'Twitch',
       handle: 'Joueuse valorant - main duelist immo',
+      profileUrl: 'https://twitch.tv/iamja2',
       stats: {
         followers: 2400,
         averageViewers: 45.6,

@@ -58,7 +58,7 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ profile }) => {
             />
           </span>
         )}
-        {' '}| F/A dash in site for ( streaming sometimes )
+        {' '}| F/A dash in site for ??
       </span>
     );
   };

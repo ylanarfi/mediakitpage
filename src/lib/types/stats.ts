@@ -1,23 +1,26 @@
 export interface SocialStats {
-    platform: 'TikTok' | 'X' | 'Twitch';
-    handle: string;
-    stats: {
-      followers: number;
-      likes?: number;
-      views?: number;
-      posts?: number;
-      averageViewers?: number;
-      hoursStreamed?: number;
-    };
-    growth: {
-      followers: number;
-      likes?: number;
-      views?: number;
-      posts?: number;
-      averageViewers?: number;
-      hoursStreamed?: number;
-    };
-  }
+  platform: 'TikTok' | 'X' | 'Twitch';
+  handle: string;
+  profileUrl: string;
+  stats: {
+    followers: number;
+    likes?: number;
+    views?: number;
+    posts?: number;
+    averageViewers?: number;
+    hoursStreamed?: number;
+  };
+  growth: {
+    followers: number;
+    likes?: number;
+    views?: number;
+    posts?: number;
+    averageViewers?: number;
+    hoursStreamed?: number;
+  };
+}
+
+// ... rest of your types remain the same
   
   export interface Experience {
     title: string;
