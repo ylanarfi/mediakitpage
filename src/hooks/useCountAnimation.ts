@@ -5,19 +5,26 @@ interface UseCountAnimationProps {
   duration?: number;
   delay?: number;
   suffix?: string;
+  isPrintMode?: boolean;
 }
 
 export const useCountAnimation = ({ 
   end, 
   duration = 2000, 
   delay = 0,
-  suffix = ''
+  suffix = '',
+  isPrintMode = false
 }: UseCountAnimationProps) => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(isPrintMode ? end : 0);
   const [isInView, setIsInView] = useState(false);
   const elementRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (isPrintMode) {
+      setCount(end);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -36,10 +43,10 @@ export const useCountAnimation = ({
         observer.unobserve(elementRef.current);
       }
     };
-  }, []);
+  }, [isPrintMode, end]);
 
   useEffect(() => {
-    if (!isInView) return;
+    if (!isInView || isPrintMode) return;
 
     let startTimestamp: number | null = null;
     const step = (timestamp: number) => {
@@ -62,7 +69,7 @@ export const useCountAnimation = ({
     }, delay);
 
     return () => clearTimeout(timeoutId);
-  }, [end, duration, delay, isInView]);
+  }, [end, duration, delay, isInView, isPrintMode]);
 
   const formattedCount = end >= 1000 
     ? `${(count / 1000).toFixed(1)}K${suffix}`

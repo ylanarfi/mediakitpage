@@ -72,7 +72,7 @@ export const mockProfile: UserProfile = {
       url: 'https://www.vlr.gg/event/2100/game-changers-2024-emea-contenders-series-2'
     },
     {
-      title: 'GC 2024 France: Series 2',
+      title: 'GC 2024 France: S2',
       role: '🏆1st',
       date: 'June 2024',
       game: 'charbon',
