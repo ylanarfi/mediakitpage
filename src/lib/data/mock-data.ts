@@ -24,7 +24,7 @@ export const mockProfile: UserProfile = {
       platform: 'X',
       handle: 'F/A dash in site for ??',
       stats: {
-        followers: 909000,
+        followers: 928,
         posts: 1800,
         likes: 16600,
       },
@@ -52,7 +52,7 @@ export const mockProfile: UserProfile = {
   experiences: [
     {
       title: 'Lioness Cup 2024',
-      role: '3rd',
+      role: '🏆3rd',
       date: 'October 2024',
       game: 'NYAN',
       description: '',
@@ -70,12 +70,39 @@ export const mockProfile: UserProfile = {
     },
     {
       title: 'GC 2024 France: Series 2',
-      role: '1st',
+      role: '🏆1st',
       date: 'June 2024',
       game: 'charbon',
       description: '',
       imageUrl: '/images/experiences/contenders.jpg',
       url: 'https://www.vlr.gg/event/2121/game-changers-2024-france-series-2'
+    },
+    {
+      title: 'GC 2024 EMEA: Contenders Series 1',
+      role: 'Groupe Stage 17h-24th',
+      date: 'April 2024',
+      game: 'Huge Esport',
+      description: '',
+      imageUrl: '/images/experiences/contenders.jpg',
+      url: 'https://www.vlr.gg/event/2015/game-changers-2024-emea-contenders-series-1'
+    },
+    {
+      title: 'GC 2024 France: Series 1',
+      role: 'Playoffs🏆2nd',
+      date: 'March 2024',
+      game: 'Huge Esport',
+      description: '',
+      imageUrl: '/images/experiences/contenders.jpg',
+      url: 'https://www.vlr.gg/event/2041/game-changers-2024-france-series-1'
+    },
+    {
+      title: 'GC EMEA Contenders Series 3',
+      role: 'Playoffs 25h-32th',
+      date: 'October 2023',
+      game: 'SFAM GC',
+      description: '',
+      imageUrl: '/images/experiences/contenders.jpg',
+      url: 'https://www.vlr.gg/event/1835/game-changers-emea-contenders-series-3'
     },
   ],
   frames: [
