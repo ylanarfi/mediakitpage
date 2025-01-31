@@ -63,7 +63,7 @@ export const mockProfile: UserProfile = {
       url: 'https://www.vlr.gg/event/2237/lioness-cup-2024'
     },
     {
-      title: 'GC 2024 EMEA: Contenders Series 2',
+      title: 'GC 2024 EMEA: Contenders S2',
       role: 'Playoffs 5h-6th',
       date: 'July 2024',
       game: 'charbon',
@@ -81,7 +81,7 @@ export const mockProfile: UserProfile = {
       url: 'https://www.vlr.gg/event/2121/game-changers-2024-france-series-2'
     },
     {
-      title: 'GC 2024 EMEA: Contenders Series 1',
+      title: 'GC 2024 EMEA: Contenders S1',
       role: 'Groupe Stage 17h-24th',
       date: 'April 2024',
       game: 'Huge Esport',
@@ -90,7 +90,7 @@ export const mockProfile: UserProfile = {
       url: 'https://www.vlr.gg/event/2015/game-changers-2024-emea-contenders-series-1'
     },
     {
-      title: 'GC 2024 France: Series 1',
+      title: 'GC 2024 France: S1',
       role: 'Playoffs🏆2nd',
       date: 'March 2024',
       game: 'Huge Esport',
@@ -99,7 +99,7 @@ export const mockProfile: UserProfile = {
       url: 'https://www.vlr.gg/event/2041/game-changers-2024-france-series-1'
     },
     {
-      title: 'GC EMEA Contenders Series 3',
+      title: 'GC EMEA Contenders S3',
       role: 'Playoffs 25h-32th',
       date: 'October 2023',
       game: 'SFAM GC',
