@@ -57,25 +57,25 @@ export const mockProfile: UserProfile = {
       game: 'NYAN',
       description: '',
       imageUrl: '/images/experiences/lioness.jpg',
-      url: 'https://www.vlr.gg/team/13855/nyan-esports'
+      url: 'https://www.vlr.gg/event/2237/lioness-cup-2024'
     },
     {
-      title: 'RTS3',
-      role: '2nd',
-      date: '2024',
-      game: 'MIX',
-      description: '',
-      imageUrl: '/images/experiences/bts3.jpg',
-      url: 'https://www.vlr.gg/team/12630/huge-esport'
-    },
-    {
-      title: 'contenders s2 2024',
-      role: '5th',
+      title: 'GC 2024 EMEA: Contenders Series 2',
+      role: 'Playoffs 5h-6th',
       date: 'July 2024',
       game: 'charbon',
       description: '',
       imageUrl: '/images/experiences/contenders.jpg',
-      url: 'https://www.vlr.gg/team/15862/charbon'
+      url: 'https://www.vlr.gg/event/2100/game-changers-2024-emea-contenders-series-2'
+    },
+    {
+      title: 'GC 2024 France: Series 2',
+      role: '1st',
+      date: 'June 2024',
+      game: 'charbon',
+      description: '',
+      imageUrl: '/images/experiences/contenders.jpg',
+      url: 'https://www.vlr.gg/event/2121/game-changers-2024-france-series-2'
     },
   ],
   frames: [
