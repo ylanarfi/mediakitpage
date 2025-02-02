@@ -13,15 +13,16 @@ const ExperiencesSection: React.FC<ExperiencesProps> = ({ experiences, isPrintMo
       <h2 className="text-2xl font-bold mb-6">Experiences</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {experiences.map((exp, index) => (
-          <div key={index} className="bg-black/20 rounded-xl overflow-hidden hover:bg-black/30 transition-colors">
+          <div key={index} className="bg-black/20 rounded-xl overflow-hidden">
             <div className="p-4">
               <div className="flex items-center space-x-3 mb-4">
-                <div className="w-12 h-12 relative rounded-lg overflow-hidden">
+                <div className="w-12 h-12 relative rounded-lg overflow-hidden flex items-center justify-center bg-black/40">
                   <Image
                     src={exp.imageUrl}
                     alt={exp.title}
                     fill
-                    className="object-cover"
+                    className="object-contain"
+                    sizes="48px"
                   />
                 </div>
                 <div>
@@ -51,4 +52,4 @@ const ExperiencesSection: React.FC<ExperiencesProps> = ({ experiences, isPrintMo
   );
 };
 
-export { ExperiencesSection };
+export { ExperiencesSection }; // Added the export statement

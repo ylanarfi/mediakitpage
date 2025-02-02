@@ -14,6 +14,19 @@ body {
   min-height: 100vh;
 }
 
+/* Add to your globals.css */
+@media print {
+  .page-break-before {
+    page-break-before: always;
+    break-before: page;
+  }
+
+  .first-page {
+    page-break-after: always;
+    break-after: page;
+  }
+}
+
 /* Custom Profile Header Styles */
 @media (max-width: 640px) {
   .profile-banner {

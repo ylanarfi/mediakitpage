@@ -10,55 +10,60 @@ interface PrintableContentProps {
 
 const PrintableContent: React.FC<PrintableContentProps> = ({ profile }) => {
   return (
-    <div className="bg-gray-900 text-white min-h-screen">
-      {/* Banner */}
-      <div className="relative h-48 w-full mb-8">
+    <div className="bg-gray-900 text-white max-w-5xl mx-auto">
+      {/* Banner - Compact height */}
+      <div className="relative w-full" style={{ height: '100px' }}>
         <Image
           src="/images/banner.png"
           alt="Profile Banner"
           fill
-          className="object-cover"
+          className="object-cover object-center"
           priority
         />
+        <div className="absolute inset-0 bg-black/20" />
       </div>
 
-      {/* Profile Header for PDF */}
-      <div className="mb-8 px-8">
-        <div className="flex items-center space-x-6">
-          <div className="relative w-24 h-24 rounded-full overflow-hidden">
-            <Image
-              src={profile.avatar}
-              alt={profile.username}
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
-          <div>
-            <h1 className="text-2xl font-bold">{profile.username}</h1>
-            <p className="text-gray-400">{profile.description}</p>
-          </div>
+      {/* Profile Header */}
+      <div className="flex flex-col items-center -mt-8 relative z-10 mb-4">
+        {/* Profile Picture */}
+        <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-black bg-black relative">
+          <Image
+            src={profile.avatar}
+            alt={profile.username}
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+
+        {/* Profile Info */}
+        <div className="text-center mt-2">
+          <h1 className="text-xl font-bold">{profile.username}</h1>
+          <p className="text-gray-400 mt-1 text-sm">{profile.description}</p>
         </div>
       </div>
 
-      {/* Social Stats */}
-      <div className="px-8 mb-8">
-        <SocialStatsSection stats={profile.socialStats} isPrintMode={true} />
-      </div>
+      {/* Main Content - Adjusted spacing */}
+      <div className="px-4">
+        {/* Social Stats */}
+        <div className="mb-4">
+          <SocialStatsSection stats={profile.socialStats} isPrintMode={true} />
+        </div>
 
-      {/* Experiences */}
-      <div className="px-8 mb-8">
-        <ExperiencesSection experiences={profile.experiences} isPrintMode={true} />
-      </div>
+        {/* Experiences */}
+        <div className="mb-4">
+          <ExperiencesSection experiences={profile.experiences} isPrintMode={true} />
+        </div>
 
-      {/* Frames */}
-      <div className="px-8 mb-8" style={{ breakInside: 'avoid' }}>
-        <FramesGallery frames={profile.frames} isPrintMode={true} />
-      </div>
+        {/* Frames - Added margin bottom for footer */}
+        <div className="mb-6">
+          <FramesGallery frames={profile.frames} isPrintMode={true} />
+        </div>
 
-      {/* Footer */}
-      <div className="mt-8 text-center text-sm text-gray-400 px-8 pb-8">
-        Generated on {new Date().toLocaleDateString()}
+        {/* Footer - Always visible */}
+        <footer className="text-center text-sm text-gray-400 pt-2 border-t border-gray-800">
+          © 2025 Media Kit Page. All rights reserved.
+        </footer>
       </div>
     </div>
   );
