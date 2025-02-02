@@ -10,7 +10,9 @@ interface ExperiencesProps {
 const ExperiencesSection: React.FC<ExperiencesProps> = ({ experiences, isPrintMode = false }) => {
   return (
     <div className="mt-12">
-      <h2 className="text-2xl font-bold mb-6">Experiences</h2>
+      {/* Title only shown in web view */}
+      {!isPrintMode && <h2 className="text-2xl font-bold mb-6">Experiences</h2>}
+      
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {experiences.map((exp, index) => (
           <div key={index} className="bg-black/20 rounded-xl overflow-hidden">
@@ -52,4 +54,4 @@ const ExperiencesSection: React.FC<ExperiencesProps> = ({ experiences, isPrintMo
   );
 };
 
-export { ExperiencesSection }; // Added the export statement
+export { ExperiencesSection };

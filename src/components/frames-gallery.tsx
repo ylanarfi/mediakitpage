@@ -11,7 +11,9 @@ interface FramesGalleryProps {
 const FramesGallery: React.FC<FramesGalleryProps> = ({ frames, isPrintMode = false }) => {
   return (
     <div className={`${isPrintMode ? 'mt-4' : 'mt-12'}`}>
-      <h2 className={`${isPrintMode ? 'text-lg' : 'text-2xl'} font-bold mb-6`}>Frames</h2>
+      {/* Title only shown in web view */}
+      {!isPrintMode && <h2 className="text-2xl font-bold mb-6">Frames</h2>}
+      
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {frames.map((frame, index) => (
           <div 
@@ -21,7 +23,7 @@ const FramesGallery: React.FC<FramesGalleryProps> = ({ frames, isPrintMode = fal
             {/* Container with consistent 16:9 ratio for both web and PDF */}
             <div 
               className="relative w-full" 
-              style={{ paddingBottom: '56.25%' }} // 16:9 aspect ratio for all views
+              style={{ paddingBottom: '56.25%' }}
             >
               <Image
                 src={frame.imageUrl}

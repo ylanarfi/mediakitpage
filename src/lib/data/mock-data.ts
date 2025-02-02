@@ -82,7 +82,7 @@ export const mockProfile: UserProfile = {
     },
     {
       title: 'GC 2024 EMEA: Contenders S1',
-      role: 'Groupe Stage 17h-24th',
+      role: '17h-24th',
       date: 'April 2024',
       game: 'Huge Esport',
       description: '',
@@ -100,7 +100,7 @@ export const mockProfile: UserProfile = {
     },
     {
       title: 'GC EMEA Contenders S3',
-      role: 'Playoffs 25h-32th',
+      role: '25h-32th',
       date: 'October 2023',
       game: 'SFAM GC',
       description: '',

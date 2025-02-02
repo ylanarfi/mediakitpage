@@ -41,25 +41,25 @@ const PrintableContent: React.FC<PrintableContentProps> = ({ profile }) => {
         </div>
       </div>
 
-      {/* Main Content */}
+      {/* Main Content - Tighter spacing for PDF */}
       <div className="px-4">
         {/* Social Stats */}
-        <div className="mb-4">
+        <div className="mb-3">
           <SocialStatsSection stats={profile.socialStats} isPrintMode={true} />
         </div>
 
         {/* Experiences */}
-        <div className="mb-4">
+        <div className="mb-3">
           <ExperiencesSection experiences={profile.experiences} isPrintMode={true} />
         </div>
 
-        {/* Frames - Reduced top margin for PDF */}
-        <div className="mb-8">
+        {/* Frames */}
+        <div className="mb-4">
           <FramesGallery frames={profile.frames} isPrintMode={true} />
         </div>
 
-        {/* Footer with proper spacing and border */}
-        <div className="text-center text-sm text-gray-400 pt-4 mt-4 border-t border-gray-800">
+        {/* Footer */}
+        <div className="text-center text-sm text-gray-400 py-3 border-t border-gray-800">
           © 2025 Media Kit Page. All rights reserved.
         </div>
       </div>
