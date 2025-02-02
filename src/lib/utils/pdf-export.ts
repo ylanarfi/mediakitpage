@@ -8,7 +8,7 @@ export const exportToPDF = async (element: HTMLElement, username: string) => {
       printableContent.style.display = 'block';
     }
 
-    // Ensure images are loaded
+    // Wait for images to load
     await new Promise((resolve) => setTimeout(resolve, 2000));
 
     // Create canvas with optimized settings
@@ -38,7 +38,6 @@ export const exportToPDF = async (element: HTMLElement, username: string) => {
     // Calculate dimensions for A4 page with margins
     const margin = 10; // mm
     const pageWidth = 210; // A4 width in mm
-    const pageHeight = 297; // A4 height in mm
     const printWidth = pageWidth - (margin * 2);
     
     // Create PDF with better quality settings
