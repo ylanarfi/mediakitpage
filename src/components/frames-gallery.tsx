@@ -18,13 +18,10 @@ const FramesGallery: React.FC<FramesGalleryProps> = ({ frames, isPrintMode = fal
             key={index} 
             className="relative rounded-xl overflow-hidden bg-black/20"
           >
-            {/* Container div with fixed aspect ratio */}
+            {/* Container with consistent 16:9 ratio for both web and PDF */}
             <div 
               className="relative w-full" 
-              style={isPrintMode ? 
-                { height: '100px' } : 
-                { paddingBottom: '56.25%' } // 16:9 aspect ratio for web
-              }
+              style={{ paddingBottom: '56.25%' }} // 16:9 aspect ratio for all views
             >
               <Image
                 src={frame.imageUrl}
