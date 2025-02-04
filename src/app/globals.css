@@ -14,64 +14,25 @@ body {
   min-height: 100vh;
 }
 
-/* Add to your globals.css */
-@media print {
-  .page-break-before {
-    page-break-before: always;
-    break-before: page;
-  }
-
-  .first-page {
-    page-break-after: always;
-    break-after: page;
-  }
-}
-
-/* Custom Profile Header Styles */
-@media (max-width: 640px) {
-  .profile-banner {
-    height: 240px;
-  }
-  
-  .profile-picture {
-    margin-top: -64px;
-    margin-bottom: 1rem;
-  }
-  
-  .profile-info {
-    text-align: center;
-    padding: 0 1rem;
-  }
-}
-
-/* Add these animations to your existing globals.css */
 @keyframes fadeIn {
   from {
     opacity: 0;
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
 }
 
-.animate-scale-in {
-  animation: scaleIn 300ms ease-out forwards;
-}
-
-/* Add for print mode */
 @media print {
-  .no-print {
-    display: none !important;
+  .animate-fade-in {
+    opacity: 1;
+    transform: none;
+    animation: none;
   }
 }

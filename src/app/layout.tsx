@@ -9,20 +9,10 @@ export const metadata: Metadata = {
   description: 'Professional gaming and streaming media kit for JA2',
   icons: {
     icon: [
-      {
-        media: '(prefers-color-scheme: light)',
-        url: '/images/favicon/favicon.svg',
-        href: '/images/favicon/favicon.svg',
-      },
-      {
-        media: '(prefers-color-scheme: dark)',
-        url: '/images/favicon/favicon.svg',
-        href: '/images/favicon/favicon.svg',
-      },
+      { url: '/images/favicon/favicon.svg', type: 'image/svg+xml' },
     ],
-    shortcut: ['/images/favicon/favicon.svg'],
     apple: [
-      { url: '/images/favicon/favicon.svg' },
+      { url: '/images/favicon/apple-touch-icon.png' },
     ],
   },
 }
@@ -37,8 +27,9 @@ export default function RootLayout({
       <head>
         <link rel="icon" type="image/svg+xml" href="/images/favicon/favicon.svg" />
         <link rel="alternate icon" href="/images/favicon/favicon.ico" />
+        <link rel="apple-touch-icon" href="/images/favicon/apple-touch-icon.png" />
       </head>
-      <body className={`${inter.className} bg-gray-900`}>{children}</body>
+      <body className={inter.className}>{children}</body>
     </html>
   )
 }
