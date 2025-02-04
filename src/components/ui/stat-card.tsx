@@ -6,15 +6,13 @@ interface StatCardProps {
   value: string | number;
   growth?: number;
   suffix?: string;
-  delay?: number;
 }
 
 const StatCard: React.FC<StatCardProps> = ({ 
   label, 
   value, 
   growth, 
-  suffix = '', 
-  delay = 0 
+  suffix = ''
 }) => {
   const formattedValue = typeof value === 'number' ? 
     value >= 1000 ? `${(value / 1000).toFixed(1)}K${suffix}` : value.toString()

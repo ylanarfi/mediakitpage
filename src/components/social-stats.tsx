@@ -64,7 +64,6 @@ export const SocialStatsSection: React.FC<SocialStatsProps> = ({ stats, isPrintM
                 label="Followers"
                 value={platform.stats.followers}
                 growth={platform.growth.followers}
-                delay={platformIndex * 200}
               />
               
               {platform.platform === 'TikTok' && (
@@ -73,13 +72,11 @@ export const SocialStatsSection: React.FC<SocialStatsProps> = ({ stats, isPrintM
                     label="Likes"
                     value={platform.stats.likes || 0}
                     growth={platform.growth.likes}
-                    delay={platformIndex * 200 + 100}
                   />
                   <StatCard
                     label="Views"
                     value={platform.stats.views || 0}
                     growth={platform.growth.views}
-                    delay={platformIndex * 200 + 200}
                   />
                 </>
               )}
@@ -90,13 +87,11 @@ export const SocialStatsSection: React.FC<SocialStatsProps> = ({ stats, isPrintM
                     label="Posts"
                     value={platform.stats.posts || 0}
                     growth={platform.growth.posts}
-                    delay={platformIndex * 200 + 100}
                   />
                   <StatCard
                     label="Likes"
                     value={platform.stats.likes || 0}
                     growth={platform.growth.likes}
-                    delay={platformIndex * 200 + 200}
                   />
                 </>
               )}
@@ -107,13 +102,11 @@ export const SocialStatsSection: React.FC<SocialStatsProps> = ({ stats, isPrintM
                     label="Average Viewers"
                     value={platform.stats.averageViewers || 0}
                     growth={platform.growth.averageViewers}
-                    delay={platformIndex * 200 + 100}
                   />
                   <StatCard
                     label="Hours Streamed"
                     value={platform.stats.hoursStreamed || 0}
                     growth={platform.growth.hoursStreamed}
-                    delay={platformIndex * 200 + 200}
                   />
                 </>
               )}
