@@ -3,17 +3,37 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Dark theme (default) */
 :root {
-  --foreground-rgb: 255, 255, 255;
-  --background-rgb: 17, 24, 39;
+  --background: 17, 24, 39;
+  --card-bg: rgba(0, 0, 0, 0.2);
+  --card-hover: rgba(0, 0, 0, 0.3);
+  --text-primary: 255, 255, 255;
+  --text-secondary: 156, 163, 175;
+  --accent: 147, 51, 234;
+  --stats-bg: rgba(255, 255, 255, 0.05);
+  --stats-hover: rgba(255, 255, 255, 0.1);
+}
+
+/* Light theme */
+:root.light {
+  --background: 255, 255, 255;
+  --card-bg: 249, 250, 251;
+  --card-hover: 243, 244, 246;
+  --text-primary: 17, 24, 39;
+  --text-secondary: 71, 84, 103;
+  --accent: 127, 86, 217;
+  --stats-bg: 243, 244, 246;
+  --stats-hover: 229, 231, 235;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-rgb));
-  min-height: 100vh;
+  color: rgb(var(--text-primary));
+  background: rgb(var(--background));
+  transition: all 0.3s ease;
 }
 
+/* Keep your existing animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -29,10 +49,21 @@ body {
   animation: fadeIn 0.6s ease-out forwards;
 }
 
-@media print {
-  .animate-fade-in {
-    opacity: 1;
-    transform: none;
-    animation: none;
-  }
+/* Card styles with theme support */
+.social-platform {
+  background-color: var(--card-bg);
+  transition: all 0.3s ease;
+}
+
+.social-platform:hover {
+  background-color: var(--card-hover);
+}
+
+.stat-card {
+  background-color: var(--stats-bg);
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  background-color: var(--stats-hover);
 }
