@@ -3,29 +3,26 @@ import { useState, useEffect, useRef } from 'react';
 interface UseCountAnimationProps {
   end: number;
   duration?: number;
-  delay?: number;
   suffix?: string;
-  isPrintMode?: boolean;
+  enabled?: boolean;
 }
 
 export const useCountAnimation = ({ 
   end, 
-  duration = 2000, 
-  delay = 0,
+  duration = 2000,
   suffix = '',
-  isPrintMode = false
+  enabled = true
 }: UseCountAnimationProps) => {
-  const [count, setCount] = useState(isPrintMode ? end : 0);
+  const [count, setCount] = useState(0);
   const [isInView, setIsInView] = useState(false);
   const elementRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (isPrintMode) {
+    if (!enabled) {
       setCount(end);
       return;
     }
 
-    const currentElement = elementRef.current; // Store ref value
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -35,6 +32,7 @@ export const useCountAnimation = ({
       { threshold: 0.1 }
     );
 
+    const currentElement = elementRef.current;
     if (currentElement) {
       observer.observe(currentElement);
     }
@@ -44,37 +42,27 @@ export const useCountAnimation = ({
         observer.unobserve(currentElement);
       }
     };
-  }, [isPrintMode, end]);
+  }, [enabled, end]);
 
   useEffect(() => {
-    if (!isInView || isPrintMode) return;
+    if (!isInView || !enabled) return;
 
     let startTimestamp: number | null = null;
     const step = (timestamp: number) => {
-      if (!startTimestamp) {
-        startTimestamp = timestamp;
-      }
-
+      if (!startTimestamp) startTimestamp = timestamp;
       const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-      const current = Math.floor(progress * end);
-      
-      setCount(current);
-
+      setCount(Math.floor(progress * end));
       if (progress < 1) {
         window.requestAnimationFrame(step);
       }
     };
 
-    const timeoutId = setTimeout(() => {
-      window.requestAnimationFrame(step);
-    }, delay);
-
-    return () => clearTimeout(timeoutId);
-  }, [end, duration, delay, isInView, isPrintMode]);
+    window.requestAnimationFrame(step);
+  }, [isInView, end, duration, enabled]);
 
   const formattedCount = end >= 1000 
     ? `${(count / 1000).toFixed(1)}K${suffix}`
     : `${count}${suffix}`;
 
-  return { count: formattedCount, ref: elementRef };
+  return { value: formattedCount, ref: elementRef };
 };
